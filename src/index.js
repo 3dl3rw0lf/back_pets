@@ -6,32 +6,21 @@
  * Creation of the server
  ******************************************************************************/
 const express = require('express');
+const cors = require('cors');
 const config = require('./config');
 
 const app = express();
 
-const petRoutes = require('../routes/petRouter');
+const authRoutes = require('../routes/authRoutes');
+const petRoutes = require('../routes/petRoutes');
 
-const PORT = config.port_server;
+const PORT = config.port_server || 3000;
 
+app.use(cors());
 app.use(express.json());
 
-/* 
-// método get
-app.get('/', (req, res) => {
-  res.send('Hello Pets');
-});
-app.get('/protected', (req, res) => {});
-
-// método post
-app.post('/login', (req, res) => {
-  res.json({ user: '3dl3rw0lf' });
-});
-app.post('/register', (req, res) => {
-  res.json({ user: 'wgeni@' });
-});
-app.post('/logout', (req, res) => {});
- */
+// Usuarios
+app.use('/auth', authRoutes);
 
 // Mascotas
 app.use('/pets', petRoutes);

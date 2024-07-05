@@ -43,11 +43,25 @@ connection.connect((err) => {
       // Generamos la consulta para crear la tabla
       const createTableQuery = `
                     CREATE TABLE IF NOT EXISTS pets (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
-                        pet_name VARCHAR(255) NOT NULL,
-                        pet_type VARCHAR(255) NOT NULL,
-                        pet_age INT NOT NULL
-                    );
+                      pet_id bigint unsigned NOT NULL,
+                      pet_name varchar(255) NOT NULL,
+                      pet_type_id varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                      pet_age int NOT NULL,
+                      pet_owner_id varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                      pet_report bigint unsigned DEFAULT NULL,
+                      pet_report_date timestamp NOT NULL,
+                      pet_status bigint unsigned DEFAULT NULL,
+                      pet_status_date timestamp NOT NULL,
+                      PRIMARY KEY (pet_id),
+                      KEY pets_pet_owners_FK (pet_owner_id),
+                      KEY pets_types_pets_FK (pet_type_id),
+                      KEY pets_pet_status_FK (pet_status),
+                      KEY pets_pet_report_FK (pet_report),
+                      CONSTRAINT pets_pet_owners_FK FOREIGN KEY (pet_owner_id) REFERENCES pet_owners (owner_id) ON DELETE CASCADE ON UPDATE CASCADE,
+                      CONSTRAINT pets_pet_report_FK FOREIGN KEY (pet_report) REFERENCES pet_report (id_report) ON DELETE CASCADE ON UPDATE CASCADE,
+                      CONSTRAINT pets_pet_status_FK FOREIGN KEY (pet_status) REFERENCES pet_status (status_id) ON DELETE CASCADE ON UPDATE CASCADE,
+                      CONSTRAINT pets_types_pets_FK FOREIGN KEY (pet_type_id) REFERENCES types_pets (type_id) ON DELETE CASCADE ON UPDATE CASCADE
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
                 `;
 
       connection.query(createTableQuery, (err, result) => {

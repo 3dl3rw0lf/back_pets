@@ -13,6 +13,9 @@ const config = {
   pass: process.env.PASS,
   port_db: process.env.PORT_DB,
   port_server: process.env.PORT_SERVER,
+  port_front: process.env.PORT_FE,
+  secretKey: process.env.SECRET_KEY,
+  tokenExpiresIn: process.env.TOKEN_EXPIRES_IN,
 };
 
 module.exports = config;

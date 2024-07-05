@@ -14,12 +14,12 @@ const petController = require('../controllers/petController');
 // Mascotas
 router.get('/', petController.getAllPets);
 
-router.get('/:id', petController.getPetById);
+router.get('/:petId', petController.getPetById);
 
 router.post('/', petController.createdPet);
 
-router.put('/:id', petController.updatedPet);
+router.put('/:petId', petController.updatedPet);
 
-router.delete('/:id', petController.deletedPet);
+router.delete('/:petId', petController.deletedPet);
 
 module.exports = router;
