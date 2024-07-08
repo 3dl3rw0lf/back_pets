@@ -53,32 +53,13 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"petName\": \"miss kitten\",\r\n    \"petType\": \"gato\",\r\n    \"petAge\": \"9\" \r\n}",
+					"raw": "{\r\n    \"petId\":\"100906136252710968\",\r\n    \"petName\":\"StarLord\",\r\n    \"petTypeId\":\"636F6E656A6F\",\r\n    \"petAge\":\"9\",\r\n    \"petOwnerId\":\"4C6175726120417A63757272613233363835313232\",\r\n    \"petReport\":\"100906136252710942\",\r\n    \"petReportDate\":\"2023-12-21 14:07:49\",\r\n    \"petStatus\":\"100906136252710941\",\r\n    \"petStatusDate\":\"1978-09-22 23:59:59\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:3000/pets",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"pets"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "list_pets",
-			"request": {
-				"method": "GET",
-				"header": [],
 				"url": {
 					"raw": "http://localhost:3000/pets/",
 					"protocol": "http",
@@ -95,12 +76,31 @@
 			"response": []
 		},
 		{
+			"name": "list_pets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/pets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "id_pets",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/pets/2",
+					"raw": "http://localhost:3000/pets/100906136252710958",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -108,7 +108,7 @@
 					"port": "3000",
 					"path": [
 						"pets",
-						"2"
+						"100906136252710958"
 					]
 				}
 			},
@@ -121,7 +121,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"petName\": \"gran ra\",\r\n    \"petType\": \"perro\",\r\n    \"petAge\": \"7\" \r\n}",
+					"raw": "{\r\n    \"petId\":\"100906136252710968\",\r\n    \"petName\":\"StarLord\",\r\n    \"petTypeId\":\"636F6E656A6F\",\r\n    \"petAge\":\"9\",\r\n    \"petOwnerId\":\"4C6175726120417A63757272613233363835313232\",\r\n    \"petReport\":\"100906136252710942\",\r\n    \"petReportDate\":\"2023-12-21 14:07:49\",\r\n    \"petStatus\":\"100906136252710941\",\r\n    \"petStatusDate\":\"1978-09-22 23:59:59\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

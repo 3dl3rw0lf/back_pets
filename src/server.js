@@ -7,20 +7,16 @@
  ******************************************************************************/
 const express = require('express');
 const cors = require('cors');
-const config = require('./config');
+const config = require('../config/config');
 
 const app = express();
 
-const authRoutes = require('../routes/authRoutes');
 const petRoutes = require('../routes/petRoutes');
 
 const PORT = config.port_server || 3000;
 
 app.use(cors());
 app.use(express.json());
-
-// Usuarios
-app.use('/auth', authRoutes);
 
 // Mascotas
 app.use('/pets', petRoutes);

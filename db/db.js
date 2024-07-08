@@ -1,6 +1,6 @@
 const mysql = require('mysql2');
 
-const config = require('../src/config');
+const config = require('../config/config');
 
 // 2.- Configuramos conexión a la BD
 const connection = mysql.createConnection({
