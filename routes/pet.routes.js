@@ -6,10 +6,11 @@
  * Creation of the Router
  ******************************************************************************/
 const express = require('express');
-
+const cors = require('cors');
 const router = express.Router();
+router.use(cors());
 
-const petController = require('../controllers/petController');
+const petController = require('../controllers/pet.controller');
 
 // Mascotas
 router.get('/', petController.getAllPets);

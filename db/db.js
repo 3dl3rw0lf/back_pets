@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
   host: config.host,
   user: config.user,
   password: config.pass,
-  port: config.port_db,
+  port: config.port_db
 });
 
 // conexión
@@ -19,7 +19,7 @@ connection.connect((err) => {
   }
 
   // En caso OK
-  console.log(`Estado de conexión: CONECTADA`);
+  console.log('Estado de conexión: CONECTADA');
 
   // Creamos una consulta
   const sqlCreateDB = 'CREATE DATABASE IF NOT EXISTS pets_lost';
@@ -32,7 +32,7 @@ connection.connect((err) => {
       return;
     }
     // Éxito
-    console.log(`Base de Datos: CREADA/EXISTENTE`);
+    console.log('Base de Datos: CREADA/EXISTENTE');
 
     // TABLA
     connection.changeUser({ database: 'pets_lost' }, (err) => {
@@ -72,7 +72,7 @@ connection.connect((err) => {
         }
 
         // Éxito
-        console.log(`Tabla CREADA`);
+        console.log('Tabla CREADA o EXISTENTE');
       });
     });
   });

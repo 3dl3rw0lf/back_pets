@@ -5,13 +5,12 @@
  * Creación de los métodos del CRUD
  * Creation of CRUD methods
  ******************************************************************************/
-const { v6: uuidv6 } = require('uuid');
 const db = require('../db/db.js');
 
+// TODO:modificar nombre de método sólo traer "Con Reporte de Pérdida"
 const getAllPets = (req, res) => {
-  
   const sql =
-    'SELECT p.pet_id, p.pet_name, tp.type_pets_description, po.owner_name, p.pet_age, p.pet_name, pr.description_report , p.pet_report_date, ps.status_description, p.pet_status_date FROM pets p LEFT JOIN types_pets tp ON p.pet_type_id = tp.type_id LEFT JOIN pet_owners po ON p.pet_owner_id = po.owner_id LEFT JOIN pet_report pr ON p.pet_report = pr.id_report LEFT JOIN pet_status ps ON p.pet_status = ps.status_id';
+    'SELECT p.pet_id, p.pet_name, tp.type_pets_description, po.owner_name, p.pet_age, p.pet_name, pr.description_report , p.pet_report_date, ps.status_description, p.pet_status_date FROM pets p LEFT JOIN types_pets tp ON p.pet_type_id = tp.type_id LEFT JOIN pet_owners po ON p.pet_owner_id = po.owner_id LEFT JOIN pet_report pr ON p.pet_report = pr.id_report LEFT JOIN pet_status ps ON p.pet_status = ps.status_id WHERE pr.description_report NOT LIKE "Con Reporte de Pérdida"';
 
   db.query(sql, (err, result) => {
     if (err) {
@@ -22,6 +21,10 @@ const getAllPets = (req, res) => {
   });
 };
 
+// TODO: Realizar método para traer "Sin Reporte de Pérdida" getAllPetsSRP y getPetSRPById
+// TODO: Agregar y/o separar en otro routes y controller
+
+// TODO: Modificar para traer sólo "Con Reporte de Pérdida"
 const getPetById = (req, res) => {
   const { petId } = req.params;
 
@@ -50,7 +53,7 @@ const createdPet = (req, res) => {
     petReport,
     petReportDate,
     petStatus,
-    petStatusDate,
+    petStatusDate
   } = req.body;
 
   const sql =
@@ -66,7 +69,7 @@ const createdPet = (req, res) => {
       petReport,
       petReportDate,
       petStatus,
-      petStatusDate,
+      petStatusDate
     ],
     (err, result) => {
       if (err) {
@@ -86,7 +89,7 @@ const updatedPet = (req, res) => {
     petReport,
     petReportDate,
     petStatus,
-    petStatusDate,
+    petStatusDate
   } = req.body;
 
   const sql =
@@ -102,7 +105,7 @@ const updatedPet = (req, res) => {
       petReportDate,
       petStatus,
       petStatusDate,
-      petId,
+      petId
     ],
     (err, result) => {
       if (err) {
@@ -133,5 +136,5 @@ module.exports = {
   getPetById,
   createdPet,
   updatedPet,
-  deletedPet,
+  deletedPet
 };
