@@ -7,7 +7,8 @@ const connection = mysql.createConnection({
   host: config.host,
   user: config.user,
   password: config.pass,
-  port: config.port_db
+  port: config.port_db,
+  database: config.database
 });
 
 // conexión
