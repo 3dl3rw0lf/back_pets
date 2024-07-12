@@ -16,7 +16,7 @@ const userRoutes = require('../routes/user.routes.js');
 const petLostRoutes = require('../routes/petLost.routes.js');
 const petFoundRoutes = require('../routes/petFound.routes.js');
 
-const PORT = config.port_server || 3000;
+const PORT = process.env.PORT || config.port_server || 3000;
 
 app.use(express.json());
 
