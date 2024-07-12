@@ -7,10 +7,9 @@
  ******************************************************************************/
 const db = require('../db/db.js');
 
-// TODO:modificar nombre de método sólo traer "Con Reporte de Pérdida"
-const getAllPets = (req, res) => {
+const getAllPetsLost = (req, res) => {
   const sql =
-    'SELECT p.pet_id, p.pet_name, tp.type_pets_description, po.owner_name, p.pet_age, p.pet_name, pr.description_report , p.pet_report_date, ps.status_description, p.pet_status_date, p.pet_latitud, p.pet_longitud FROM pets p LEFT JOIN types_pets tp ON p.pet_type_id = tp.type_id LEFT JOIN pet_owners po ON p.pet_owner_id = po.owner_id LEFT JOIN pet_report pr ON p.pet_report = pr.id_report LEFT JOIN pet_status ps ON p.pet_status = ps.status_id WHERE pr.description_report NOT LIKE "Con Reporte de Pérdida"';
+    'SELECT p.pet_id, p.pet_name, tp.type_pets_description, po.owner_name, p.pet_age, p.pet_name, pr.description_report , p.pet_report_date, ps.status_description, p.pet_status_date, p.pet_latitud, p.pet_longitud FROM pets p LEFT JOIN types_pets tp ON p.pet_type_id = tp.type_id LEFT JOIN pet_owners po ON p.pet_owner_id = po.owner_id LEFT JOIN pet_report pr ON p.pet_report = pr.id_report LEFT JOIN pet_status ps ON p.pet_status = ps.status_id WHERE pr.description_report LIKE "Con Reporte de Pérdida"';
 
   db.query(sql, (err, result) => {
     if (err) {
@@ -21,11 +20,7 @@ const getAllPets = (req, res) => {
   });
 };
 
-// TODO: Realizar método para traer "Sin Reporte de Pérdida" getAllPetsSRP y getPetSRPById
-// TODO: Agregar y/o separar en otro routes y controller
-
-// TODO: Modificar para traer sólo "Con Reporte de Pérdida"
-const getPetById = (req, res) => {
+const getPetLostById = (req, res) => {
   const { petId } = req.params;
   const sql =
   'SELECT p.pet_id, p.pet_name, tp.type_pets_description, po.owner_name, pet_age, p.pet_name, pr.description_report , pet_report_date, ps.status_description, pet_status_date FROM pets p LEFT JOIN types_pets tp ON p.pet_type_id = tp.type_id LEFT JOIN pet_owners po ON p.pet_owner_id = po.owner_id LEFT JOIN pet_report pr ON p.pet_report = pr.id_report LEFT JOIN pet_status ps ON p.pet_status = ps.status_id WHERE pet_id = ?';
@@ -42,7 +37,7 @@ const getPetById = (req, res) => {
 };
 
 // Funciona
-const createdPet = (req, res) => {
+const createdLostPet = (req, res) => {
   const {
     petName,
     petTypeId,
@@ -78,7 +73,7 @@ const createdPet = (req, res) => {
   );
 };
 
-const updatedPet = (req, res) => {
+const updatedLostPet = (req, res) => {
   const { petId } = req.params;
   const {
     petName,
@@ -109,13 +104,12 @@ const updatedPet = (req, res) => {
       if (err) {
         throw err;
       }
-
       res.json({ message: 'Mascota actualizada correctamente' });
     }
   );
 };
 
-const deletedPet = (req, res) => {
+const deletedLostPet = (req, res) => {
   const { petId } = req.params;
 
   const sql = 'DELETE FROM PETS WHERE pet_id = ?';
@@ -124,15 +118,14 @@ const deletedPet = (req, res) => {
     if (err) {
       throw err;
     }
-
     res.json({ message: 'Mascota borrada correctamente' });
   });
 };
 
 module.exports = {
-  getAllPets,
-  getPetById,
-  createdPet,
-  updatedPet,
-  deletedPet
+  getAllPetsLost,
+  getPetLostById,
+  createdLostPet,
+  updatedLostPet,
+  deletedLostPet
 };

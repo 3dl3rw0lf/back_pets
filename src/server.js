@@ -12,7 +12,8 @@ const config = require('../config/config');
 const app = express();
 
 const userRoutes = require('../routes/user.routes.js');
-const petRoutes = require('../routes/pet.routes.js');
+const petLostRoutes = require('../routes/petLost.routes.js');
+const petFoundRoutes = require('../routes/petFound.routes.js');
 
 const PORT = config.port_server || 3000;
 
@@ -21,8 +22,11 @@ app.use(express.json());
 // Usuarios
 app.use('/users', userRoutes);
 
-// Mascotas
-app.use('/pets', petRoutes);
+// Mascotas Perdidas
+app.use('/petsLost', petLostRoutes);
+
+// Mascotas Encontradas
+app.use('/petsFound', petFoundRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);

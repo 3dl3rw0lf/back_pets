@@ -40,6 +40,25 @@ body {
     font-family: JetBrainsMono;
 }
 
+.main {
+    background-image: url('../img/fondo_principal.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 77vh;
+    text-align: center;
+}
+
+.main h1,
+.main p {
+    color: var(--color5);
+    margin: 0;
+}
+
 header {
     background-color: var(--color2);
     color: #fff;

@@ -1,4 +1,4 @@
-fetch('http://localhost:3000/pets')
+fetch('http://localhost:3000/petsLost')
   .then(response => response.json())
   .then(data => {
     const pets = data;
