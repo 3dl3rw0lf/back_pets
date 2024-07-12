@@ -2,28 +2,33 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Listado de Mascotas</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página Responsiva</title>
+  <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <link rel="stylesheet" href="../static/css/style.css">
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 
 <body>
-  <header id="header"></header>
-  <main class="container">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col">
-        <div class="carousel">
-          <h1>Listado de Mascotas</h1>
-          <div id="petsList"></div>
-        </div>
-      </div>
+  <header id="header">
+    <div class="logo">
+      <img src="../static/img/logo.svg" alt="Logo Institucional">
     </div>
+    <i class="fa fa-bars menu-icon"></i>
+  </header>
+  <main>
+    <section class="cards-container" id="cards-cont"></section>
   </main>
   <footer>
-    <p>&copy; 2024 Nuestro Sitio Web</p>
+    <p>&copy; 2024 Missing Pets</p>
   </footer>
-  <script src="../script/lp.js"></script>
   <script type="module" src="../main.js"></script>
+  <script src="../script/lp.js"></script>
 </body>
 
 </html>

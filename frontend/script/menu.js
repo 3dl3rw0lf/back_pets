@@ -1,17 +1,17 @@
-import { links } from "./link.js";
+import { links } from './link.js';
 
-export function menu() {
-    let li = links.pages
-        .map(
-            (link) =>
+export function menu () {
+  const li = links.pages
+    .map(
+      (link) =>
                 `<li class="nav-links">
-					<a class=" ${link.page.includes("Inicio") ? "navbar-brand" : ""
+                    <a class=" ${link.page.includes('Inicio') ? 'navbar-brand' : ''
                 }" href="${link.link} ">${link.page}</a>
                 </li>`
-        )
-        .join("");
+    )
+    .join('');
 
-    return `
+  return `
         <nav>
         <div class="hamburger" id="hamburger">
             <div></div>
@@ -21,6 +21,10 @@ export function menu() {
         <ul id="nav-links">
             ${li}
         </ul>
-    </nav>
-	`;
+        <div class="auth-buttons">
+            <button class="login-btn">Login</button>
+            <button class="logout-btn">Logout</button>
+        </div>
+        <i class="fa fa-bars menu-icon"></i>
+    </nav>`;
 }
