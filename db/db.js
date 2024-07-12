@@ -4,11 +4,11 @@ const config = require('../config/config');
 
 // 2.- Configuramos conexión a la BD
 const connection = mysql.createConnection({
-  host: config.host,
-  user: config.user,
-  password: config.pass,
-  port: config.port_db,
-  database: config.database
+  host: config.env.MYSQL_ADDON_HOST,
+  user: config.MYSQL_ADDON_USER,
+  password: config.MYSQL_ADDON_PASSWORD,
+  port: config.MYSQL_ADDON_PORT,
+  database: config.MYSQL_ADDON_DB
 });
 
 // conexión
