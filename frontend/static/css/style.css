@@ -179,7 +179,6 @@ article p {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(0.5rem);
     padding: 20px;
     border-radius: 10px;
     position: relative;
