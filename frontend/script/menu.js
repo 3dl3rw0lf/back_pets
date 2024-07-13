@@ -4,27 +4,18 @@ export function menu () {
   const li = links.pages
     .map(
       (link) =>
-                `<li class="nav-links">
-                    <a class=" ${link.page.includes('Inicio') ? 'navbar-brand' : ''
-                }" href="${link.link} ">${link.page}</a>
-                </li>`
+                `<a class=" ${link.page.includes('Inicio') ? 'navbar-brand' : ''
+                }" href="${link.link} ">${link.page}</a>`
     )
     .join('');
 
   return `
         <nav>
-        <div class="hamburger" id="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <ul id="nav-links">
+          <div class="navbar" id="navbar">
             ${li}
-        </ul>
-        <div class="auth-buttons">
             <button class="login-btn">Login</button>
             <button class="logout-btn">Logout</button>
-        </div>
-        <i class="fa fa-bars menu-icon"></i>
+          </div>
+          <i class="fa fa-bars" id="menu-icon"></i>
     </nav>`;
 }

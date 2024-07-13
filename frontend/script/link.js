@@ -1,7 +1,7 @@
 export const links = {
   pages: [
     {
-      page: 'Pichis',
+      page: 'MP',
       // link: '/frontend/index.html'
       link: '/index.html'
     },
