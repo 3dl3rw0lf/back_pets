@@ -7,8 +7,8 @@ export const links = {
     },
     {
       page: 'Mascotas Perdidas',
-      link: '/frontend/templates/lost_pets.html'
-      // link: '/templates/lost_pets.html'
+      // link: '/frontend/templates/lost_pets.html'
+      link: '/templates/lost_pets.html'
     },
     {
       page: 'Mascotas Encontradas',
