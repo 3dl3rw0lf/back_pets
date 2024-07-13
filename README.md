@@ -1,4 +1,4 @@
-# Proyecto de Reportes de Mascotas Perdidas y Encontradas 
+# Proyecto Missing Pets
 
 ![Logo del Proyecto](frontend/static/img/logo.svg)
 
