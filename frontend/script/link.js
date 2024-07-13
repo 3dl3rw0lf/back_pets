@@ -19,6 +19,11 @@ export const links = {
       page: 'Encontrar a mi mascota',
       // link: '/frontend/templates/contact.html'
       link: '/templates/contact.html'
+    },
+    {
+      page: 'Sobre nosotros',
+      // link: '/frontend/templates/about.html'
+      link: '/templates/about.html'
     }
   ]
 };

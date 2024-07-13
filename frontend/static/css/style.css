@@ -76,13 +76,21 @@ body {
     z-index: 1;
 }
 
-.main h1 {
+/* .main h1 {
     font-size: 3rem;
     font-weight: bold;
+} */
+
+.main h1 {
+    font-size: 2.5rem;
+    color: var(--color2);
+    margin-bottom: 20px;
 }
 
 .main p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--color5);
+    margin-bottom: 20px;
 }
 
 header {
@@ -151,6 +159,22 @@ nav {
     font-size: 1.5rem;
 }
 
+/* about */
+
+article h2 {
+    font-size: 2rem;
+    color: var(--color5);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+article p {
+    font-size: 1.2rem;
+    color: var(--color5);
+    margin-bottom: 20px;
+}
+
+/* cards */
 
 .cards-container {
     background-color: var(--color3);
