@@ -1,14 +1,14 @@
 const mysql = require('mysql2');
 
-// const config = require('../config/config');
+const config = require('../config/config');
 
 // 2.- Configuramos conexión a la BD
 const connection = mysql.createConnection({
-  host: process.env.MYSQL_ADDON_HOST,
-  user: process.env.MYSQL_ADDON_USER,
-  password: process.env.MYSQL_ADDON_PASSWORD,
-  port: process.env.MYSQL_ADDON_PORT,
-  database: process.env.MYSQL_ADDON_DB
+  host: process.env.MYSQL_ADDON_HOST || config.host,
+  user: process.env.MYSQL_ADDON_USER || config.user,
+  password: process.env.MYSQL_ADDON_PASSWORD || config.pass,
+  port: process.env.MYSQL_ADDON_PORT || config.port_db,
+  database: process.env.MYSQL_ADDON_DB || config.database
 });
 
 // conexión

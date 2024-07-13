@@ -23,6 +23,13 @@ app.use(express.json());
 // Servir archivos estáticos del directorio frontend
 app.use(express.static(path.join(__dirname, '../frontend')));
 
+// Ruta para servir los archivos HTML desde 'templates'
+app.get('/templates/:filename', (req, res) => {
+  const filename = req.params.filename;
+  const filePath = path.join(__dirname, '../frontend/templates', filename);
+  res.sendFile(filePath);
+});
+
 // Usuarios
 app.use('/users', userRoutes);
 
