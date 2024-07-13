@@ -24,7 +24,7 @@ const getAllPetsFound = (req, res) => {
 const getPetFoundById = (req, res) => {
   const { petId } = req.params;
   const sql =
-  'SELECT p.pet_id, p.pet_name, tp.type_pets_description, po.owner_name, pet_age, p.pet_name, pr.description_report , pet_report_date, ps.status_description, pet_status_date FROM pets p LEFT JOIN types_pets tp ON p.pet_type_id = tp.type_id LEFT JOIN pet_owners po ON p.pet_owner_id = po.owner_id LEFT JOIN pet_report pr ON p.pet_report = pr.id_report LEFT JOIN pet_status ps ON p.pet_status = ps.status_id WHERE pet_id = ?';
+  'SELECT p.pet_id, p.pet_name, tp.type_pets_description, po.owner_name, pet_age, pr.description_report , pet_report_date, ps.status_description, pet_status_date, p.pet_latitud, p.pet_longitud  FROM pets p LEFT JOIN types_pets tp ON p.pet_type_id = tp.type_id LEFT JOIN pet_owners po ON p.pet_owner_id = po.owner_id LEFT JOIN pet_report pr ON p.pet_report = pr.id_report LEFT JOIN pet_status ps ON p.pet_status = ps.status_id WHERE pet_id = ?';
 
   db.query(sql, [petId], (err, result) => {
     if (err) {
@@ -47,11 +47,13 @@ const createdFoundPet = (req, res) => {
     petReport,
     petReportDate,
     petStatus,
-    petStatusDate
+    petStatusDate,
+    petLatitud,
+    petLongitud
   } = req.body;
 
   const sql =
-    'INSERT INTO pets (pet_id, pet_name, pet_type_id, pet_age, pet_owner_id, pet_report, pet_report_date, pet_status, pet_status_date) VALUES( UUID(), ?, ?, ?, ?, ?, ?, ?, ?)';
+    'INSERT INTO pets (pet_id, pet_name, pet_type_id, pet_age, pet_owner_id, pet_report, pet_report_date, pet_status, pet_status_date, pet_latitud, pet_longitud) VALUES( UUID(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
   db.query(
     sql,
@@ -63,7 +65,9 @@ const createdFoundPet = (req, res) => {
       petReport,
       petReportDate,
       petStatus,
-      petStatusDate
+      petStatusDate,
+      petLatitud,
+      petLongitud
     ],
     (err, result) => {
       if (err) {
@@ -83,11 +87,13 @@ const updatedFoundPet = (req, res) => {
     petReport,
     petReportDate,
     petStatus,
-    petStatusDate
+    petStatusDate,
+    petLatitud,
+    petLongitud
   } = req.body;
 
   const sql =
-    'UPDATE PETS SET pet_name = ?, pet_type_id = ?, pet_age = ?, pet_report = ?, pet_report_date = ?, pet_status = ?, pet_status_date = ? WHERE pet_id = ?';
+    'UPDATE PETS SET pet_name = ?, pet_type_id = ?, pet_age = ?, pet_report = ?, pet_report_date = ?, pet_status = ?, pet_status_date = ?, pet_latitud = ? , pet_longitud = ? WHERE pet_id = ?';
 
   db.query(
     sql,
@@ -99,6 +105,8 @@ const updatedFoundPet = (req, res) => {
       petReportDate,
       petStatus,
       petStatusDate,
+      petLatitud,
+      petLongitud,
       petId
     ],
     (err, result) => {
